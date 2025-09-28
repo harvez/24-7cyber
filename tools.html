@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>In-Depth: Cybersecurity Tools</title>
+  <style>
+    body {
+      background-color: #0d0d0d;
+      color: #00ff41;
+      font-family: 'Courier New', Courier, monospace;
+      padding: 1rem;
+    }
+    .card, .btn {
+      background-color: #1a1a1a !important;
+      border: 1px solid #00ff41 !important;
+      color: #00ff41 !important;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 5px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+    }
+    h1, h2, h3, strong {
+      color: #00ff41;
+      text-shadow: 0 0 5px rgba(0,255,65,0.5);
+    }
+    .muted { color: #00b32d !important; }
+    ul { padding-left: 20px; }
+    li { margin-bottom: 0.5rem; }
+    a { color: #00ff41; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="./<div class="top-actions" role="toolbar" .html" class="btn">⬅️ Back to Home</a>
+    <h1 style="margin-top: 1rem;">In-Depth: Cybersecurity Tools</h1>
+    <p class="muted">A look at software and services for defense and analysis.</p>
+  </header>
+
+  <main>
+
+    <div class="card">
+      <h3>Tools for Individuals</h3>
+      <p>Essential software for personal security.</p>
+      <ul>
+        <li><strong>Password Managers:</strong> The cornerstone of account security. They generate, store, and fill strong, unique passwords.
+          <ul><li>Examples: Bitwarden (open-source, excellent free tier), 1Password (great family features), KeePass (offline, open-source).</li></ul>
+        </li>
+        <li><strong>Authenticator Apps (MFA):</strong> Used for generating time-based one-time passcodes (TOTP) for multi-factor authentication.
+          <ul><li>Examples: Authy, Google Authenticator, Microsoft Authenticator. For higher security, consider hardware keys like YubiKey.</li></ul>
+        </li>
+        <li><strong>Virtual Private Networks (VPNs):</strong> Encrypt your internet traffic, protecting you on public Wi-Fi and enhancing privacy.
+          <ul><li>Look for providers with no-log policies that have undergone third-party audits.</li></ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Tools for Professionals</h3>
+      <p>Software used by security analysts, engineers, and penetration testers.</p>
+      <ul>
+        <li><strong>Vulnerability Scanners:</strong> Scan networks and applications for known security weaknesses.
+          <ul><li>Examples: Nmap (network mapping), OpenVAS (full-featured scanner), Nessus (popular commercial scanner).</li></ul>
+        </li>
+        <li><strong>Endpoint & SIEM:</strong> Tools for monitoring and responding to threats on devices (endpoints) and aggregating logs (SIEM).
+          <ul><li>Examples: OSQuery (endpoint visibility), Wazuh (open-source SIEM/XDR), Splunk (enterprise SIEM leader).</li></ul>
+        </li>
+        <li><strong>Dynamic & Static Analysis (DAST/SAST):</strong> Tools for finding vulnerabilities in code, either while it's running (DAST) or by analyzing the source (SAST).
+          <ul><li>Examples: OWASP ZAP (DAST), SonarQube (SAST), Snyk (developer-focused security).</li></ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Open Source & Community Projects</h3>
+      <p>Valuable resources developed and maintained by the security community.</p>
+      <ul>
+        <li>
+          <strong>DevOps Bash Tools:</strong> A collection of useful Bash scripts and tools for DevOps, sysadmins, and developers. A great resource for automation and system management tasks.
+          <ul><li><a href="https://github.com/harvez/DevOps-Bash-tools" target="_blank" rel="noopener noreferrer">View on GitHub</a></li></ul>
+        </li>
+        <li>
+          <strong>OWASP (Open Web Application Security Project):</strong> An organization providing free articles, methodologies, documentation, tools, and technologies in the field of web application security. Their "Top 10" list is an industry standard.
+        </li>
+        <li>
+          <strong>Metasploit Framework:</strong> A widely used penetration testing framework for developing and executing exploit code against a remote target machine.
+        </li>
+      </ul>
+    </div>
+
+  </main>
+
+</body>
+</html>
