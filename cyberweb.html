@@ -1,4 +1,10 @@
-<style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cybersecurity 101</title>
+  <style>
   body {
     background-color: #0d0d0d;
     color: #00ff41;
@@ -50,11 +56,56 @@
   }
   @keyframes blink { from, to { background-color: transparent } 50% { background-color: #00ff41; } }
 
-</style>
+  /* Live Attack Map Styles */
+  .attack-map-container {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    width: 250px;
+    height: 180px;
+    background-color: #0a0a0a;
+    border: 1px solid #00ff41;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0,255,65,0.15);
+    z-index: 1000;
+    overflow: hidden;
+  }
+  .attack-map-header {
+    background-color: #1a1a1a;
+    padding: 3px 5px;
+    border-bottom: 1px solid #00ff41;
+    color: #00b32d;
+    text-align: center;
+    font-size: 0.8em;
+  }
+  #attack-map {
+    position: relative;
+    width: 100%;
+    height: calc(100% - 25px);
+  }
+  .attack-dot {
+    position: absolute;
+    left: 0; /* Set initial horizontal position in CSS */
+    width: 4px;
+    height: 4px;
+    background-color: #ff4141;
+    border-radius: 50%;
+    opacity: 1;
+    box-shadow: 0 0 8px #ff4141;
+    transition: transform 1.5s ease-out, opacity 1.5s ease-out;
+  }
+  /* @keyframes fadeOut { to { opacity: 0; } } // No longer needed */
+
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Cybersecurity 101</h1>
   <div class="top-actions" role="toolbar" aria-label="Actions">
-    <button class="btn" id="themeToggle" title="Toggle dark / light">🌙 Dark</button>
-    <button class="btn" id="printBtn" title="Print this page">🖨️ Print</button>
-    <a class="btn primary" href="#start" title="Get started">Get Started</a>
+    <a href="threats.html" class="btn">Threats</a>
+    <a href="best-practices.html" class="btn">Best Practices</a>
+    <a href="tools.html" class="btn">Tools</a>
   </div>
 </header>
 
@@ -67,6 +118,13 @@
       </div>
     </div>
   </div>
+
+  <!-- Live Attack Map -->
+  <div class="attack-map-container" aria-hidden="true">
+    <div class="attack-map-header">LIVE CYBER ATTACKS</div>
+    <div id="attack-map"></div>
+  </div>
+
 
   <section aria-labelledby="start">
     <div class="card hero" id="start">
@@ -206,5 +264,40 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     typeWriter();
   }
+
+  // Live attack map simulation
+  const attackMap = document.getElementById('attack-map');
+  if (attackMap) {
+    setInterval(() => {
+      const dot = document.createElement('div');
+      dot.className = 'attack-dot';
+
+      const mapWidth = attackMap.clientWidth;
+      const mapHeight = attackMap.clientHeight;
+
+      // Start on the left edge at a random vertical position
+      const startTop = Math.random() * mapHeight;
+      dot.style.top = `${startTop}px`;
+
+      attackMap.appendChild(dot);
+
+      // After appending, set the destination to trigger the transition
+      const endX = Math.random() * mapWidth;
+      const endTop = Math.random() * mapHeight;
+
+      // Use a small timeout to ensure the browser renders the dot before the transition starts
+      setTimeout(() => {
+        dot.style.opacity = '0';
+        // Translate from its starting position (left: 0) to the destination
+        dot.style.transform = `translate(${endX}px, ${endTop - startTop}px)`;
+      }, 10);
+
+      setTimeout(() => {
+        dot.remove();
+      }, 1500); // Remove dot after animation
+    }, 500); // Create a new attack every 500ms
+  }
 });
 </script>
+</body>
+</html>
