@@ -73,9 +73,11 @@
   .attack-map-header {
     background-color: #1a1a1a;
     padding: 3px 5px;
+    display: flex;
+    justify-content: space-between;
     border-bottom: 1px solid #00ff41;
     color: #00b32d;
-    text-align: center;
+    /* text-align: center; */
     font-size: 0.8em;
   }
   #attack-map {
@@ -106,6 +108,7 @@
     <a href="threats.html" class="btn">Threats</a>
     <a href="best-practices.html" class="btn">Best Practices</a>
     <a href="tools.html" class="btn">Tools</a>
+    <a href="projects.html" class="btn">Projects</a>
   </div>
 </header>
 
@@ -121,7 +124,10 @@
 
   <!-- Live Attack Map -->
   <div class="attack-map-container" aria-hidden="true">
-    <div class="attack-map-header">LIVE CYBER ATTACKS</div>
+    <div class="attack-map-header">
+      <span>LIVE CYBER ATTACKS</span>
+      <span>Count: <span id="attack-counter">0</span></span>
+    </div>
     <div id="attack-map"></div>
   </div>
 
@@ -267,8 +273,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Live attack map simulation
   const attackMap = document.getElementById('attack-map');
+  const attackCounterElement = document.getElementById('attack-counter');
+  let attackCount = 0;
+
   if (attackMap) {
     setInterval(() => {
+      attackCount++;
+      if(attackCounterElement) attackCounterElement.textContent = attackCount;
       const dot = document.createElement('div');
       dot.className = 'attack-dot';
 
